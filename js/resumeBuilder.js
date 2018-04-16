@@ -46,7 +46,26 @@ This is empty on purpose! Your code to build the resume will go here.
  }
  
  
- var work = {}
+ var work = {
+	 "jobs":[
+	 {
+		"employer": "Planet Express",
+		"title": "Delivery Boy",
+		"date" : "feb 1, 2014 - Future",
+		"city": "Bikaner",
+		"description": "Who moved my cheese cheesy feet cauliflower cheese. Queso taleggio when the cheese comes out everybody's happy airedale ricotta cheese and wine paneer camembert de normandie. Swiss mozzarella cheese slices feta fromage frais airedale swiss cheesecake. Hard cheese blue castello halloumi parmesan say cheese stinking bishop jarlsberg."
+	 },
+	 {
+		 "employer": "Domino's",
+		 "title": "Delivery Boy",
+		 "date": "2013 - January 1, 2014",
+		 "city": "Bikaner",
+		 "description": "Who moved my cheese cheesy feet cauliflower cheese. Queso taleggio when the cheese comes out everybody's happy airedale ricotta cheese and wine paneer camembert de normandie. Swiss mozzarella cheese slices feta fromage frais airedale swiss cheesecake. Hard cheese blue castello halloumi parmesan say cheese stinking bishop jarlsberg."
+	 }
+	 ]
+ }
+ 
+ 
  
  var projects = {
 	 "projects":[
@@ -107,6 +126,30 @@ This is empty on purpose! Your code to build the resume will go here.
 	 var formattedSkills = HTMLskills.replace("%data%",bio.skills[i]);
 	 $("#skills").append(formattedSkills);
 	 } 
+ }
+ 
+ /*
+ *
+ *work
+ *
+ */
+
+if(work.jobs.length > 0){
+	$("#workExperience").append(HTMLworkStart);
+	for(i in work.jobs){
+		var formattedworkEmployer = HTMLworkEmployer.replace("%data%",work.jobs[i].employer);
+		var formattedworkTitle = HTMLworkTitle.replace("%data%",work.jobs[i].title);
+		var formattedworkDate = HTMLprojectDates.replace("%data%",work.jobs[i].date);
+		var formattedworkLocation = HTMLworkLocation.replace("%data%",work.jobs[i].city);
+		var formattedworkDescription = HTMLworkDescription.replace("%data%",work.jobs[i].description);
+		
+		$("#workExperience").append(formattedworkEmployer);
+		$("#workExperience").append(formattedworkTitle);
+		$("#workExperience").append(formattedworkDate);
+		$("#workExperience").append(formattedworkLocation);
+		$("#workExperience").append(formattedworkDescription);
+		
+	}	
  }
  
  /*
