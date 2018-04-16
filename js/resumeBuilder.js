@@ -139,15 +139,15 @@ if(work.jobs.length > 0){
 	for(i in work.jobs){
 		var formattedworkEmployer = HTMLworkEmployer.replace("%data%",work.jobs[i].employer);
 		var formattedworkTitle = HTMLworkTitle.replace("%data%",work.jobs[i].title);
+		var fromattedEmpTitle = formattedworkEmployer + formattedworkTitle;
 		var formattedworkDate = HTMLprojectDates.replace("%data%",work.jobs[i].date);
 		var formattedworkLocation = HTMLworkLocation.replace("%data%",work.jobs[i].city);
 		var formattedworkDescription = HTMLworkDescription.replace("%data%",work.jobs[i].description);
 		
-		$("#workExperience").append(formattedworkEmployer);
-		$("#workExperience").append(formattedworkTitle);
-		$("#workExperience").append(formattedworkDate);
-		$("#workExperience").append(formattedworkLocation);
-		$("#workExperience").append(formattedworkDescription);
+		$(".work-entry:last").append(fromattedEmpTitle);
+		$(".work-entry:last").append(formattedworkDate);
+		$(".work-entry:last").append(formattedworkLocation);
+		$(".work-entry:last").append(formattedworkDescription);
 		
 	}	
  }
@@ -167,11 +167,11 @@ if(work.jobs.length > 0){
 		 var formattedschoolMajor = HTMLschoolMajor.replace("%data%",education.school[i].majors);
 		 
 		 
-		 $("#education").append(formattedschoolname);
-		 $("#education").append(formattedschoolDegree);
-		 $("#education").append(formattedschoolDate);
-		 $("#education").append(formattedschoolCity);
-		 $("#education").append(formattedschoolMajor);
+		 $(".education-entry:last").append(formattedschoolname);
+		 $(".education-entry:last").append(formattedschoolDegree);
+		 $(".education-entry:last").append(formattedschoolDate);
+		 $(".education-entry:last").append(formattedschoolCity);
+		 $(".education-entry:last").append(formattedschoolMajor);
 	}
  }
  
@@ -187,11 +187,11 @@ if(work.jobs.length > 0){
  var formattedonlineDate = HTMLonlineDates.replace("%data%",education.onlineCouurse[0].date);
  var formattedonlineURL = HTMLonlineURL.replace("%data%",education.onlineCouurse[0].url);
  
- $("#education").append(HTMLonlineClasses);
- $("#education").append(formattedonlineTitle);
- $("#education").append(formattedonlineSchool);
- $("#education").append(formattedonlineDate);
- $("#education").append(formattedonlineURL);
+ $(".education-entry:last").append(HTMLonlineClasses);
+ $(".education-entry:last").append(formattedonlineTitle);
+ $(".education-entry:last").append(formattedonlineSchool);
+ $(".education-entry:last").append(formattedonlineDate);
+ $(".education-entry:last").append(formattedonlineURL);
  
  /*
  *
@@ -207,12 +207,12 @@ if(work.jobs.length > 0){
 			 
 			 
 			 
-			 $("#projects").append(formattedprojectTitle);
-			 $("#projects").append(formattedprojectDates);
-			 $("#projects").append(formattedprojectDescription);
+			 $(".project-entry:last").append(formattedprojectTitle);
+			 $(".project-entry:last").append(formattedprojectDates);
+			 $(".project-entry:last").append(formattedprojectDescription);
 			 for(j in projects.projects[i].image){
 				var formattedprojectImage = HTMLprojectImage.replace("%data%",projects.projects[i].image[j]);
-				$("#projects").append(formattedprojectImage); 
+				$(".project-entry:last").append(formattedprojectImage); 
 			 }
 			 
 	}	
