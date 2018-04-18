@@ -200,27 +200,33 @@ if(work.jobs.length > 0){
  *project
  *
  */
- if(projects.projects.length > 0){
-	$("#projects").append(HTMLprojectStart);
-	
-	projects.projects.forEach(function(i){
-			 var formattedprojectTitle = HTMLprojectTitle.replace("%data%",i.title);
-			 var formattedprojectDates = HTMLprojectDates.replace("%data%",i.dates);
-			 var formattedprojectDescription = HTMLprojectDescription.replace("%data%",i.description);
-			 
-			 
-			 
-			 $(".project-entry:last").append(formattedprojectTitle);
-			 $(".project-entry:last").append(formattedprojectDates);
-			 $(".project-entry:last").append(formattedprojectDescription);
-			 
-			 i.image.forEach(function(j){
-				var formattedprojectImage = HTMLprojectImage.replace("%data%",j);
-				$(".project-entry:last").append(formattedprojectImage); 
-			 });
-			 
-	});	
-}
+ 
+ projects.display = function(){
+		 if(projects.projects.length > 0){
+			$("#projects").append(HTMLprojectStart);
+			
+			projects.projects.forEach(function(i){
+					 var formattedprojectTitle = HTMLprojectTitle.replace("%data%",i.title);
+					 var formattedprojectDates = HTMLprojectDates.replace("%data%",i.dates);
+					 var formattedprojectDescription = HTMLprojectDescription.replace("%data%",i.description);
+					 
+					 
+					 
+					 $(".project-entry:last").append(formattedprojectTitle);
+					 $(".project-entry:last").append(formattedprojectDates);
+					 $(".project-entry:last").append(formattedprojectDescription);
+					 
+					 i.image.forEach(function(j){
+						var formattedprojectImage = HTMLprojectImage.replace("%data%",j);
+						$(".project-entry:last").append(formattedprojectImage); 
+					 });
+					 
+			});	
+		}
+ }
+ 
+ projects.display();
+ 
 $(document).click(function(loc){
 	var x = loc.pageX;
 	var y = loc.pageY;
@@ -239,4 +245,4 @@ function inName(name){
 inName("manoj kumar");
 $("#main").append(internationalizeButton);
 
-
+$("#mapDiv").append(googleMap);
