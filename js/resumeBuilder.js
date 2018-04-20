@@ -4,11 +4,11 @@ This is empty on purpose! Your code to build the resume will go here.
  var bio ={
 	 "name":"Manoj Kumar",
 	 "role":"Software Developer",
-	 "contact":{
+	 "contacts":{
 		 "mob": "9782584854",
 		 "email": "mjkiid2@gmail.com",
 		 "github": "mjsuthar",
-		 "city":"Bangaluru"
+		 "location":"Bangaluru"
 	 },
 	 "image":"images/fry.jpg",
 	 "welcome_note":"This is my resume.",
@@ -16,10 +16,10 @@ This is empty on purpose! Your code to build the resume will go here.
  }
  
  var education = {
-	 "school": [
+	 "schools": [
 	 {
 		 "name": "Gandhi Bal Mandir Sr. Sec. School",
-		 "city": "Jaisalmer, (Raj)",
+		 "location": "Jaisalmer, (Raj)",
 		 "degree": "Master",
 		 "majors": ["Physics","Chemistry","Math"],
 		 "date" : 2012,
@@ -27,7 +27,7 @@ This is empty on purpose! Your code to build the resume will go here.
 	 },
 	 {
 		 "name": "Govt. Engineering College Bikaner, Rajasthan",
-		 "city": "Bikaner, (Raj)",
+		 "location": "Bikaner, (Raj)",
 		 "degree": "B.Tech",
 		 "major": ["CSE"],
 		 "date": 2017,
@@ -52,14 +52,14 @@ This is empty on purpose! Your code to build the resume will go here.
 		"employer": "Planet Express",
 		"title": "Delivery Boy",
 		"date" : "feb 1, 2014 - Future",
-		"city": "Bikaner",
+		"location": "Bikaner",
 		"description": "Who moved my cheese cheesy feet cauliflower cheese. Queso taleggio when the cheese comes out everybody's happy airedale ricotta cheese and wine paneer camembert de normandie. Swiss mozzarella cheese slices feta fromage frais airedale swiss cheesecake. Hard cheese blue castello halloumi parmesan say cheese stinking bishop jarlsberg."
 	 },
 	 {
 		 "employer": "Domino's",
 		 "title": "Delivery Boy",
 		 "date": "2013 - January 1, 2014",
-		 "city": "Bikaner",
+		 "location": "Bikaner",
 		 "description": "Who moved my cheese cheesy feet cauliflower cheese. Queso taleggio when the cheese comes out everybody's happy airedale ricotta cheese and wine paneer camembert de normandie. Swiss mozzarella cheese slices feta fromage frais airedale swiss cheesecake. Hard cheese blue castello halloumi parmesan say cheese stinking bishop jarlsberg."
 	 }
 	 ]
@@ -96,11 +96,11 @@ This is empty on purpose! Your code to build the resume will go here.
  var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
  
  var formattedPic = HTMLbioPic.replace("%data%",bio.image);
- var formattedMob = HTMLmobile.replace("%data%",bio.contact.mob);
- var formattedEmail = HTMLemail.replace("%data%",bio.contact.email);
- var formattedCity = HTMLlocation.replace("%data%",bio.contact.city);
+ var formattedMob = HTMLmobile.replace("%data%",bio.contacts.mob);
+ var formattedEmail = HTMLemail.replace("%data%",bio.contacts.email);
+ var formattedCity = HTMLlocation.replace("%data%",bio.contacts.location);
  var formattedWelcom = HTMLwelcomeMsg.replace("%data%",bio.welcome_note);
- var formattedGithub = HTMLgithub.replace("%data%",bio.contact.github);
+ var formattedGithub = HTMLgithub.replace("%data%",bio.contacts.github);
  
  
  
@@ -114,6 +114,11 @@ This is empty on purpose! Your code to build the resume will go here.
  $("#topContacts").append(formattedCity);
  $("#header").append(formattedWelcom)
  
+ $('#footerContacts').append(formattedMob);
+ $('#footerContacts').append(formattedEmail);
+ $('#footerContacts').append(formattedGithub); 
+ $('#footerContacts').append(formattedCity);
+ 
 /*
 *
 *skills
@@ -122,6 +127,7 @@ This is empty on purpose! Your code to build the resume will go here.
  
  if(bio.skills.length > 0){
 	 $("#header").append(HTMLskillsStart);
+	 
 	 bio.skills.forEach(function(i){
 		var formattedSkills = HTMLskills.replace("%data%",i);
 		$("#skills").append(formattedSkills);
@@ -144,7 +150,7 @@ if(work.jobs.length > 0){
 		var formattedworkTitle = HTMLworkTitle.replace("%data%",i.title);
 		var fromattedEmpTitle = formattedworkEmployer + formattedworkTitle;
 		var formattedworkDate = HTMLprojectDates.replace("%data%",i.date);
-		var formattedworkLocation = HTMLworkLocation.replace("%data%",i.city);
+		var formattedworkLocation = HTMLworkLocation.replace("%data%",i.location);
 		var formattedworkDescription = HTMLworkDescription.replace("%data%",i.description);
 		
 		$(".work-entry:last").append(fromattedEmpTitle);
@@ -159,13 +165,13 @@ if(work.jobs.length > 0){
  *education
  *
  */
- if (education.school.length > 0){
+ if (education.schools.length > 0){
 	$("#education").append(HTMLschoolStart);
 	
-		education.school.forEach(function(i){
+		education.schools.forEach(function(i){
 		 var formattedschoolname = HTMLschoolName.replace("%data%",i.name);
 		 var formattedschoolDate = HTMLschoolDates.replace("%data%",i.date);
-		 var formattedschoolCity = HTMLschoolLocation.replace("%data%",i.city);
+		 var formattedschoolCity = HTMLschoolLocation.replace("%data%",i.location);
 		 var formattedschoolDegree = HTMLschoolDegree.replace("%data%",i.degree);
 		 var formattedschoolMajor = HTMLschoolMajor.replace("%data%",i.majors);
 		 
